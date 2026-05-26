@@ -1,132 +1,168 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto — UIverse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | Francisco Sánchez - UIverse</title>
+  <meta name="description" content="Cuéntame tu proyecto y vemos cómo mejorar la claridad, presencia y conversión de tu web o producto digital.">
+  <link rel="canonical" href="https://contacto.uiverse.es/">
+  <link rel="alternate" href="https://contacto.uiverse.es/" hreflang="es">
+  <link rel="alternate" href="https://contacto.uiverse.es/index-en.html" hreflang="en">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://contacto.uiverse.es/">
+  <meta property="og:title" content="Contacto | Francisco Sánchez - UIverse">
+  <meta property="og:description" content="Hablemos de tu web, landing page o producto digital. Diseño UI/UX y Front-End orientado a claridad y conversión.">
+  <meta property="og:image" content="https://uiverse.es/img/bghero.png">
+  <meta name="theme-color" content="#0d1117">
 
-  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Manrope:wght@600;800&display=swap" rel="stylesheet">
-
-  <!-- CSS local (misma carpeta) -->
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header class="header">
-  <div class="container header-in">
-    <!-- Logo -->
-    <div class="logo">
-      <a href="https://www.uiverse.es/" class="logo-link"></a>
-    </div>
-
-    <!-- Nombre + subtítulo -->
-    <div class="brand">
-      <h1 class="logo_tittle">Francisco Sánchez</h1>
-      <div class="logo_subtitle">Diseñador y Desarrollador Web</div>
-    </div>
-
-    <!-- Botones derecha -->
-    <div class="header-actions">
-      <!-- Botón idioma -->
-      <a href="index-en.html" class="btn ghost" aria-label="Ver versión en inglés">EN</a>
-
-      <!-- Botón contactar -->
-      <a href="mailto:pacosnchez45@gmail.com" class="btn primary" aria-label="Contactar por correo">
-        Contactar
+  <header class="header">
+    <div class="container header-in">
+      <a href="https://uiverse.es/" class="logo-link" aria-label="Volver a UIverse">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="logo-word">UIverse</span>
       </a>
-    </div>
-  </div>
-</header>
 
-  <main class="container">
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="https://uiverse.es/#servicios">Servicios</a>
+        <a href="https://uiverse.es/#casos">Casos</a>
+        <a href="https://uiverse.es/#proceso">Proceso</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index-en.html" class="lang-btn" aria-label="View contact page in English">EN</a>
+        <a href="mailto:pacosnchez45@gmail.com" class="btn btn-small btn-primary">Email</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
     <section class="contact-hero">
-      <h2 class="contact-title">Escríbeme</h2>
-      <p class="contact-sub">
-        ¿Tienes un proyecto o idea? Cuéntamela y te respondo muy pronto.
-      </p>
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Contacto</p>
+          <h1>Cuéntame qué quieres mejorar de tu web o producto digital.</h1>
+          <p>
+            Si tienes una idea, una web que no termina de convencerte o una pantalla que necesita más claridad,
+            escríbeme. Revisaré el contexto y te responderé con una primera orientación.
+          </p>
+
+          <dl class="proof-strip" aria-label="Información de contacto">
+            <div>
+              <dt>24-48h</dt>
+              <dd>tiempo habitual de respuesta</dd>
+            </div>
+            <div>
+              <dt>Remoto</dt>
+              <dd>España y proyectos online</dd>
+            </div>
+            <div>
+              <dt>Figma + Front-End</dt>
+              <dd>diseño e implementación</dd>
+            </div>
+          </dl>
+        </div>
+
+        <section class="contact-panel" aria-label="Formulario de contacto">
+          <div class="panel-heading">
+            <p class="eyebrow">Hablemos</p>
+            <h2>Describe tu proyecto</h2>
+            <p>Cuanto más contexto me des, mejor podré orientarte.</p>
+          </div>
+
+          <form id="contactForm" action="https://formspree.io/f/mnnlqaoo" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nuevo mensaje desde contacto.uiverse.es">
+
+            <div class="grid">
+              <label class="f-control">
+                <span>Nombre</span>
+                <input type="text" name="name" placeholder="Tu nombre" required>
+                <small class="error"></small>
+              </label>
+
+              <label class="f-control">
+                <span>Correo electrónico</span>
+                <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                <small class="error"></small>
+              </label>
+            </div>
+
+            <label class="f-control">
+              <span>Tipo de proyecto</span>
+              <select name="project_type">
+                <option value="">Selecciona una opción</option>
+                <option>Rediseño de web</option>
+                <option>Landing page</option>
+                <option>Auditoría UX/UI</option>
+                <option>Diseño + implementación</option>
+                <option>Otro</option>
+              </select>
+              <small class="error"></small>
+            </label>
+
+            <label class="f-control">
+              <span>Mensaje</span>
+              <textarea name="message" rows="6" placeholder="Cuéntame qué tienes ahora, qué objetivo buscas y qué te gustaría mejorar..." required></textarea>
+              <small class="error"></small>
+            </label>
+
+            <div class="actions">
+              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+              <a class="btn btn-secondary" href="mailto:pacosnchez45@gmail.com">Enviar email</a>
+            </div>
+
+            <p class="mini-note">Al enviar aceptas ser contactado para atender tu consulta. Sin newsletter, sin ruido.</p>
+          </form>
+        </section>
+      </div>
     </section>
 
-    <section class="contact-card">
-      <!-- 👇 IMPORTANTE: action = endpoint de Formspree -->
-      <form
-        id="contactForm"
-        action="https://formspree.io/f/mnnlqaoo"
-        method="POST"
-        novalidate
-      >
-        <!-- (opcional) asunto por defecto en el correo -->
-        <input type="hidden" name="_subject" value="Nuevo mensaje desde contacto.uiverse.es">
+    <section class="info-section">
+      <div class="container info-grid">
+        <article>
+          <span>01</span>
+          <h2>Qué incluir en el mensaje</h2>
+          <p>Objetivo del proyecto, enlace si ya existe, qué no te convence ahora y qué resultado te gustaría conseguir.</p>
+        </article>
 
-        <div class="grid">
-          <label class="f-control">
-            <span>Nombre</span>
-            <input type="text" name="name" placeholder="Tu nombre" required />
-            <small class="error"></small>
-          </label>
+        <article>
+          <span>02</span>
+          <h2>Cómo respondo</h2>
+          <p>Te contestaré con una primera lectura del problema, posibles siguientes pasos y qué necesitaría para presupuestarlo.</p>
+        </article>
 
-          <label class="f-control">
-            <span>Correo electrónico</span>
-            <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required />
-            <small class="error"></small>
-          </label>
-        </div>
-
-        <label class="f-control">
-          <span>Asunto (opcional)</span>
-          <input type="text" name="subject" placeholder="Ej. Presupuesto landing / Rediseño UI" />
-          <small class="error"></small>
-        </label>
-
-        <label class="f-control">
-          <span>Mensaje</span>
-          <textarea name="message" rows="6" placeholder="Cuéntame brevemente tu idea…" required></textarea>
-          <small class="error"></small>
-        </label>
-
-        <div class="actions">
-          <button type="submit" class="btn primary">Enviar mensaje</button>
-          <button type="button" class="btn ghost" id="btnWhats">WhatsApp</button>
-        </div>
-
-        <p class="mini-note">
-          Al enviar aceptas ser contactado para atender tu consulta.
-        </p>
-      </form>
-
-      <aside class="contact-aside">
-        <div class="chip">Disponible • Remoto • España</div>
-        <ul class="contact-list">
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12a9.99 9.99 0 0 0 13.7 9.29l.3-.13-.94-3.29c-.2-.68.03-1.41.58-1.84a6.01 6.01 0 1 0-2.83-4.96c0 .36.04.72.11 1.07.1.46-.07.93-.44 1.22l-1.49 1.17a8.01 8.01 0 1 1 11.05-1.79c-.29.42-.87.53-1.29.24l-1.25-.85c-.38-.26-.89-.2-1.21.13-.6.63-.99 1.45-1.07 2.35l-.02.35 3.33 1.17A9.98 9.98 0 0 0 22 12Z"/></svg>
-            Respuesta en <strong>24–48h</strong>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v14H5.17L4 19.17V4zm0-2a2 2 0 0 0-2 2v20l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4z"/></svg>
-            Correo:
-            <a href="mailto:pacosnchez45@gmail.com" class="plain-link">pacosnchez45@gmail.com</a>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10a8 8 0 1 1-6.94-7.95V9.5H9.5v3h4.56V22"/></svg>
-            Perfil
-            <a href="https://www.linkedin.com/in/francisco-s%C3%A1nchez-s%C3%A1nchez-519868242/"><strong>LinkedIn</strong></a>
-          </li>
-        </ul>
-      </aside>
+        <article>
+          <span>03</span>
+          <h2>Otros canales</h2>
+          <p>
+            También puedes escribirme a
+            <a href="mailto:pacosnchez45@gmail.com">pacosnchez45@gmail.com</a>
+            o conectar por
+            <a href="https://www.linkedin.com/in/francisco-s%C3%A1nchez-s%C3%A1nchez-519868242/" target="_blank" rel="noopener">LinkedIn</a>.
+          </p>
+        </article>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container center">
-      © <span id="y"></span> Francisco Sánchez. Todos los derechos reservados.
+    <div class="container footer-in">
+      <p>© <span id="y"></span> Francisco Sánchez. UI/UX orientado a producto y Front-End.</p>
+      <a href="https://uiverse.es/">Volver al portfolio</a>
     </div>
   </footer>
 
-  <!-- Toast para mensajes de éxito/error -->
-  <div id="toast"></div>
-
-  <!-- JavaScript principal -->
+  <div id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
 </body>
 </html>

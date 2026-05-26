@@ -1,16 +1,28 @@
-// Año en footer
 const yearSpan = document.getElementById('y');
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
-const form  = document.getElementById('contactForm');
+const form = document.getElementById('contactForm');
 const toast = document.getElementById('toast');
+const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
 
-// Si no estamos en la página de contacto, salimos
+const messages = {
+  es: {
+    name: 'Escribe tu nombre',
+    email: 'Correo no válido',
+    message: 'Cuéntame algo sobre tu proyecto',
+    sending: 'Enviando mensaje...'
+  },
+  en: {
+    name: 'Enter your name',
+    email: 'Enter a valid email',
+    message: 'Tell me something about your project',
+    sending: 'Sending message...'
+  }
+};
+
 if (form && toast) {
-
-  // Utilidades
   const showToast = (msg) => {
     toast.textContent = msg;
     toast.classList.add('show');
@@ -27,30 +39,30 @@ if (form && toast) {
     if (small) small.textContent = '';
   };
 
-  // Validación simple
   const validate = () => {
     let ok = true;
-    const name    = form.elements['name'];
-    const email   = form.elements['email'];
-    const message = form.elements['message'];
+    const name = form.elements.name;
+    const email = form.elements.email;
+    const message = form.elements.message;
+    const t = messages[lang];
 
     if (!name.value.trim()) {
-      setError(name, 'Escribe tu nombre');
+      setError(name, t.name);
       ok = false;
     } else {
       clearError(name);
     }
 
-    const er = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!er.test(email.value.trim())) {
-      setError(email, 'Correo no válido');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+      setError(email, t.email);
       ok = false;
     } else {
       clearError(email);
     }
 
     if (!message.value.trim()) {
-      setError(message, 'Cuéntame algo sobre tu proyecto');
+      setError(message, t.message);
       ok = false;
     } else {
       clearError(message);
@@ -59,31 +71,12 @@ if (form && toast) {
     return ok;
   };
 
-  // Envío a Formspree: solo bloqueamos si hay errores
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', (event) => {
     if (!validate()) {
-      e.preventDefault(); // no se envía a Formspree
+      event.preventDefault();
       return;
     }
 
-    // ✅ Si es válido, NO hacemos preventDefault → el navegador POSTEA a Formspree
-    showToast('Enviando mensaje…');
-    // Formspree mostrará la página de "Thanks" o la que hayas configurado
+    showToast(messages[lang].sending);
   });
-
-  // WhatsApp
-  const btnWhats = document.getElementById('btnWhats');
-  if (btnWhats) {
-    btnWhats.addEventListener('click', () => {
-      const name = form.elements['name'].value.trim();
-      const msg  = form.elements['message'].value.trim();
-
-      const text = encodeURIComponent(
-        `Hola Francisco, soy ${name || '—'}. ${msg || 'Te escribo desde tu portfolio.'}`
-      );
-
-      // Sustituye por tu número real en formato internacional sin '+'
-      window.open(`https://wa.me/34XXXXXXXXX?text=${text}`, '_blank');
-    });
-  }
 }
